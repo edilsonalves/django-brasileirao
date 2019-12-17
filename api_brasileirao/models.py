@@ -1,5 +1,4 @@
 from django.db import models
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 class Team(models.Model):
@@ -14,8 +13,6 @@ class Team(models.Model):
     ga = models.IntegerField(default=0)
     gd = models.IntegerField(default=0)
     percentage = models.IntegerField(default=0)
-
-    permission_class = (IsAuthenticatedOrReadOnly,)
 
     def __str__(self):
         return self.name
