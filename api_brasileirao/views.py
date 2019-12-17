@@ -1,6 +1,7 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from rest_framework import viewsets
+from . import models, serializers
 
 
-def index(request):
-    return HttpResponse('<h1>Hello, World!</h1>')
+class TeamViewSet(viewsets.ModelViewSet):
+    queryset = models.Team.objects.all().order_by('-points')
+    serializer_class = serializers.TeamSerializer
